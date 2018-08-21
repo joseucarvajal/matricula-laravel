@@ -1,0 +1,14 @@
+{
+    "fields": [
+        {
+            "name": "nombre",
+            "type": "string"
+        }
+    ],
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|max:30"
+        }
+    ]
+}

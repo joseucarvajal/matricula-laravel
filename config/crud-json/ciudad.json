@@ -1,0 +1,37 @@
+{
+    "fields": [
+        {
+            "name": "idDepartamento",
+            "type": "integer"
+        },
+        {
+            "name": "nombre",
+            "type": "string"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "idDepartamento",
+            "references": "id",
+            "on": "departamentos",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "departamento",
+            "type": "belongsTo",
+            "class": "App\\Departamento"
+        }
+    ],
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|max:100"
+        },
+        {
+            "field": "idDepartamento",
+            "rules": "required"
+        }        
+    ]
+}

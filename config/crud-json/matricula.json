@@ -1,0 +1,88 @@
+{
+    "fields": [
+        {
+            "name": "idDepartamento",
+            "type": "integer"
+        },
+        {
+            "name": "idCiudad",
+            "type": "integer"
+        },
+        {
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "documento",
+            "type": "string"
+        },
+        {
+            "name": "edad",
+            "type": "integer"
+        },
+        {
+            "name": "estrato",
+            "type": "select",
+            "options": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6"
+            }
+        },
+        {
+            "name": "valor",
+            "type": "float"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "idDepartamento",
+            "references": "id",
+            "on": "departamentos",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "idCiudad",
+            "references": "id",
+            "on": "ciudads",
+            "onDelete": "cascade"
+        }        
+    ],
+    "relationships": [
+        {
+            "name": "departamento",
+            "type": "belongsTo",
+            "class": "App\\Departamento"
+        },
+        {
+            "name": "ciudad",
+            "type": "belongsTo",
+            "class": "App\\Ciudad"
+        }        
+    ],
+    "validations": [
+        {
+            "field": "idDepartamento",
+            "rules": "required"
+        },
+        {
+            "field": "idCiudad",
+            "rules": "required"
+        },
+        {
+            "field": "nombre",
+            "rules": "required|max:100"
+        },
+        {
+            "field": "documento",
+            "rules": "required|max:20"
+        },
+        {
+            "field": "valor",
+            "rules": "required"
+        }
+    ]
+}
